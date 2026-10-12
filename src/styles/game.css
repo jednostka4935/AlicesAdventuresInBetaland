@@ -1,0 +1,415 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #f5f7ff;
+  background: #090c16;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --lime: #b8ff42;
+  --pink: #ff4f9a;
+  --muted: #929bb8;
+  --black: #000102;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, #20294a 0%, transparent 65%),
+    #090c16;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  transition: transform 150ms, filter 150ms;
+}
+
+button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
+
+.app-shell {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.topbar,
+.brand,
+.topbar-right,
+.game-heading,
+.control-buttons,
+.game-footer {
+  display: flex;
+  align-items: center;
+}
+
+.topbar,
+.game-heading {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.topbar {
+  margin-bottom: 36px;
+}
+
+.brand {
+  gap: 14px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--lime);
+  color: #111722;
+  border-radius: 10px;
+  font: 800 30px 'Barlow Condensed', sans-serif;
+  box-shadow: 0 0 30px #b8ff4230;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  color: var(--pink);
+  margin-bottom: 0;
+  font: 800 clamp(20px, 3vw, 28px) 'Barlow Condensed', sans-serif;
+  letter-spacing: .5px;
+}
+
+h1 span {
+  color: var(--lime);
+}
+
+.topbar-right {
+  gap: 9px;
+  color: #c5cbe0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px var(--lime);
+}
+
+.game-heading {
+  margin-bottom: 18px;
+}
+
+.game-heading h2 {
+  margin-bottom: 0;
+  font: 700 28px 'Barlow Condensed', sans-serif;
+}
+
+.control-buttons {
+  gap: 8px;
+}
+
+.primary-button,
+.secondary-button {
+  border-radius: 7px;
+  padding: 12px 17px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.primary-button {
+  border: 0;
+  background: var(--lime);
+  color: #111722;
+  box-shadow: 0 4px 0 #679d19;
+}
+
+.primary-button span {
+  margin-right: 8px;
+}
+
+.secondary-button {
+  border: 1px solid #414b69;
+  background: #1b2135;
+  color: #f5f7ff;
+}
+
+.game-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #424c69;
+  border-radius: 12px;
+  background: #111225;
+  box-shadow: 0 20px 65px #0006;
+}
+
+.game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.screen-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  background: #090c16b8;
+  backdrop-filter: blur(5px);
+}
+
+.title-badge {
+  padding: 7px 11px;
+  margin-bottom: 17px;
+  border: 1px solid #ff4f9a70;
+  border-radius: 4px;
+  color: var(--pink);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.screen-overlay h2 {
+  margin-bottom: 16px;
+  font: 800 clamp(45px, 8vw, 82px)/.85 'Barlow Condensed', sans-serif;
+  letter-spacing: -1px;
+}
+
+.title-overlay h2 {
+  color: var(--lime);
+}
+
+
+.title-overlay h2 span {
+  color: var(--pink);
+  text-shadow: 0 0 35px #b8ff4235;
+}
+
+
+.title-description,
+.screen-overlay > p:not(.eyebrow) {
+  max-width: 370px;
+  margin-bottom: 22px;
+  color: #c5cbe0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.menu-hint {
+  margin: 22px 0 0 !important;
+  color: #929bb8 !important;
+  font-size: 9px !important;
+  letter-spacing: 1.5px;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 16px;
+  border: 1px solid #303952;
+  border-radius: 9px;
+  background: #121728cc;
+}
+
+.hud-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 17px 22px;
+}
+
+.hud-stat + .hud-stat {
+  border-left: 1px solid #303952;
+}
+
+.hud-label {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hud-stat strong {
+  font: 700 24px 'Barlow Condensed', sans-serif;
+}
+
+.lime-text {
+  color: var(--lime);
+}
+
+.lives {
+  color: var(--black);
+  letter-spacing: 2px;
+}
+
+.game-footer {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 17px;
+  color: #d5daf0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.muted {
+  margin-left: 5px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.disclaimer {
+  margin: 32px 0 0;
+  color: #68718e;
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 20px 12px;
+  }
+
+  .topbar {
+    margin-bottom: 24px;
+  }
+
+  .topbar-right {
+    font-size: 8px;
+  }
+
+  .game-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hud-stat {
+    padding: 13px 10px;
+  }
+
+  .hud-stat strong {
+    font-size: 19px;
+  }
+
+  .hud-label {
+    font-size: 8px;
+    letter-spacing: .7px;
+  }
+
+  .game-footer {
+    gap: 12px;
+    font-size: 8px;
+  }
+
+  .screen-overlay {
+    padding: 12px;
+  }
+
+  .title-badge {
+    margin-bottom: 12px;
+    font-size: 8px;
+  }
+
+  .title-description {
+    max-width: 280px;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+
+  .menu-hint {
+    display: none;
+  }
+}
+
+
+.title-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(10, 8, 25, 0.88);
+}
+
+.menu-missile {
+  position: absolute;
+  top: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Left side */
+.menu-missile-left {
+  left: 2%;
+  transform: translateY(-50%) rotate(-35deg);
+}
+
+/* Right side */
+.menu-missile-right {
+  right: 2%;
+  transform: translateY(-50%) rotate(35deg) scaleX(-1);
+}
+
+/* Keep menu text and buttons above the images */
+.title-overlay > :not(.menu-missile) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .menu-missile {
+    width: 55px;
+    height: 55px;
+  }
+
+  .menu-missile-left {
+    left: 2%;
+  }
+
+  .menu-missile-right {
+    right: 2%;
+  }
+}
+
+
